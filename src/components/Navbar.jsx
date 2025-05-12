@@ -51,7 +51,7 @@ const Navbar = () => {
                 </a>
               ) : nav.isDownload ? (
                 <a
-                  href="/Adarsh_Ravindran_Resume.pdf"
+                  href="/Adarsh_Ravindran.pdf"
                   download
                   className="text-white"
                 >
