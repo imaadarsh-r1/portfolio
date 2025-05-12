@@ -8,7 +8,6 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectCard = ({
@@ -24,22 +23,21 @@ const ProjectCard = ({
   useEffect(() => {
     const el = cardRef.current;
 
-    // ScrollTrigger for animating project cards with stagger
     gsap.fromTo(
       el,
       {
         opacity: 0,
-        y: 100, // Start off-screen
+        y: 100,
       },
       {
         opacity: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
-          start: "top bottom",  // Trigger when the top of the element hits the bottom of the viewport
-          end: "top center",    // End when the top reaches the center of the viewport
-          scrub: true,          // Smoothly sync scroll and animation
-          markers: false,       // Set to `true` to see debug markers
+          start: "top bottom",
+          end: "top center",
+          scrub: true,
+          markers: false,
         },
       }
     );
@@ -98,9 +96,8 @@ const ProjectCard = ({
 
 const Works = () => {
   useEffect(() => {
-    // Stagger effect for project cards
     gsap.fromTo(
-      ".project-card", // Select all project cards
+      ".project-card",
       {
         opacity: 0,
         y: 100,
@@ -108,13 +105,13 @@ const Works = () => {
       {
         opacity: 1,
         y: 0,
-        stagger: 0.1, // Stagger delay of 0.3 seconds between each card
+        stagger: 0.1,
         scrollTrigger: {
           trigger: ".works-container",
-          start: "top bottom",  // Trigger when the top of the container reaches the bottom
+          start: "top bottom",
           end: "top center",
           scrub: true,
-          markers: false, // Set to true to see debug markers
+          markers: false,
         },
       }
     );
@@ -129,7 +126,11 @@ const Works = () => {
 
       <div className="w-full flex">
         <p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
-          Following projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
+          The following projects highlight my skills and practical experience
+          through real-world applications. Each project includes a brief
+          description and showcases my ability to solve complex problems, work
+          with diverse technologies, and manage projects efficiently from start
+          to finish.
         </p>
       </div>
 
@@ -144,4 +145,5 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+// Important: Make sure this id matches the one in Navbar link (e.g., href="#projects")
+export default SectionWrapper(Works, "projects");
